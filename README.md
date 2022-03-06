@@ -1,2 +1,2 @@
 # Food-Order-App-Backend
-The custom backend for the Food Order React App
+The custom NodeJS/Express backend for the Food Order React App
