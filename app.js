@@ -1,8 +1,13 @@
 const express = require('express');
 const res = require('express/lib/response');
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost/FoodDB'; // currently using local MongoDB database.
-// May also use MongoDB Atlas Cloud DB.
+
+// Using a local MongoDB database
+// const url = 'mongodb://localhost/FoodDB';
+
+// Using MongoDB Atlas Cloud Database
+const url =
+  'mongodb+srv://Anubhav123:Anubhav123@cluster0.sdhjc.mongodb.net/FoodDB?retryWrites=true&w=majority';
 
 const app = express();
 app.use(express.json());
