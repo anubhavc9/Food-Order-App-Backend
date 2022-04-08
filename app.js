@@ -9,7 +9,7 @@ const url =
   'mongodb+srv://Anubhav123:Anubhav123@cluster0.sdhjc.mongodb.net/FoodDB?retryWrites=true&w=majority';
 
 const app = express();
-const PORT = 9000;
+const port = process.env.PORT || 9000;
 app.use(express.json());
 
 const cors = require('cors');
@@ -37,6 +37,6 @@ app.use('/meals', mealsRouter);
 const ordersRouter = require('./routes/orders');
 app.use('/orders', ordersRouter);
 
-app.listen(PORT, () => {
-  console.log(`Backend server started at port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Backend server started at port ${port}`);
 });
