@@ -1,5 +1,4 @@
 const express = require('express');
-const res = require('express/lib/response');
 const mongoose = require('mongoose');
 
 // Using a local MongoDB database
@@ -10,6 +9,7 @@ const url =
   'mongodb+srv://Anubhav123:Anubhav123@cluster0.sdhjc.mongodb.net/FoodDB?retryWrites=true&w=majority';
 
 const app = express();
+const PORT = 9000;
 app.use(express.json());
 
 const cors = require('cors');
@@ -27,12 +27,16 @@ con.on('open', () => {
   console.log('Connected to database');
 });
 
+app.get('/', (req, res) => {
+  res.status(200).send('Home route loaded successfully!');
+});
+
 const mealsRouter = require('./routes/meals');
 app.use('/meals', mealsRouter);
 
 const ordersRouter = require('./routes/orders');
 app.use('/orders', ordersRouter);
 
-app.listen(9000, () => {
-  console.log('Server started at port 9000');
+app.listen(PORT, () => {
+  console.log(`Backend server started at port ${PORT}`);
 });
